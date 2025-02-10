@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(heart1.jpg) ;
+    font-family: Arial, sans-serif;
+}
+
+.postcard-container {
+    perspective: 1000px; /* Creates a 3D space for the flipping effect */
+}
+
+.postcard {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d; /* Keep the 3D transformation of the child elements */
+    transition: transform 1s; /* Smooth transition when the card flips */
+}
+
+.front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    backface-visibility: hidden; /* Hide the back when flipped */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.front {
+    background-color: #d65c85; /* Green background for the front side */
+}
+
+.back {
+    background-color: #da90a8; /* Green background for the front side */
+    transform: rotateY(180deg); /* Rotate the back side 180 degrees */
+}
+
+/* Flip effect when hovered */
+.postcard-container:hover .postcard {
+    transform: rotateY(180deg); /* Rotate the entire postcard */
+}
+
